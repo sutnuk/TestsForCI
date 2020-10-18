@@ -10,7 +10,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat(script: 'packages\\NUnit.ConsoleRunner.3.11.1\\tools\\nunit3-console.exe TestsForCI\\bin\\Debug\\TestsForCI.exe --x86', label: 'Start nunit', returnStatus: true)
+        bat(script: 'packages\\NUnit.ConsoleRunner.3.11.1\\tools\\nunit3-console.exe TestsForCI\\bin\\Debug\\TestsForCI.exe --inprocess', label: 'Start nunit', returnStatus: true)
       }
     }
 

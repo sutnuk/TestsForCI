@@ -16,10 +16,10 @@ pipeline {
 
     stage('Generate Reporting') {
       steps {
-        publishHTML(target:
-  [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true,
-  reportDir: '', reportFiles: 'TestResult.xml', reportName:
-  'DOC', reportTitles: ''])
+        cucumber buildStatus: 'UNSTABLE',
+                reportTitle: 'My report',
+                fileIncludePattern: '**/*.json',
+                trendsLimit: 10
       }
     }
 

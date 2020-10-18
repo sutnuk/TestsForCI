@@ -16,7 +16,8 @@ pipeline {
 
     stage('Generate Reporting') {
       steps {
-        cobertura(coberturaReportFile: 'TestResult.xml')
+        testcompletetest launchType: 'lcProject', project: 'TestsForCI',
+commandLineArguments: '/ExportSummary: TestResult.xml'
       }
     }
 

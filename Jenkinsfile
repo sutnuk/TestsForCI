@@ -10,8 +10,13 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat(script: '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe" ', label: 'Start nunit', returnStatus: true)
-        bat(label: 'run tests', returnStatus: true, script: '/testcontainer:TestsForCI\\bin\\Debug\\TestsForCI.dll')
+        bat(script: '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe" TestsForCI\\bin\\Debug\\TestsForCI.dll', label: 'Start nunit', returnStatus: true)
+      }
+    }
+
+    stage('Generate Reporting') {
+      steps {
+        cucumber(classificationsFilePattern: '**/*.json', fileExcludePattern: '0', reportTitle: 'Report', buildStatus: 'Builded', fileIncludePattern: 'File')
       }
     }
 

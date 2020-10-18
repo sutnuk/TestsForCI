@@ -16,10 +16,7 @@ pipeline {
 
     stage('Generate Reporting') {
       steps {
-        cucumber buildStatus: 'UNSTABLE',
-                reportTitle: 'My report',
-                fileIncludePattern: '**/*.json',
-                trendsLimit: 10
+        cobertura(coberturaReportFile: 'TestResult.xml')
       }
     }
 

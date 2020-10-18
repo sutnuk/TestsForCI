@@ -18,7 +18,7 @@ pipeline {
       steps {
         publishHTML(target:
   [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true,
-  reportDir: 'doc/internal/html', reportFiles: 'index.html', reportName:
+  reportDir: '', reportFiles: 'TestResult.xml', reportName:
   'DOC', reportTitles: ''])
       }
     }

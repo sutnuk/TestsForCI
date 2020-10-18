@@ -11,6 +11,8 @@ pipeline {
     stage('Test') {
       steps {
         bat(script: '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe" ', label: 'Start nunit', returnStatus: true)
+        mail(subject: 'Test Result', body: '{result}', from: 'me', to: 'sutnuk23nazar@gmail.com')
+        bat(label: 'run tests', returnStatus: true, script: '/testcontainer:TestsForCI\\bin\\Debug\\TestsForCI.dll')
       }
     }
 

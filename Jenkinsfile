@@ -10,7 +10,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat(script: '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe" C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestsForCI_master\\TestsForCI\\obj\\Debug\\TestsForCI.exe"C:\\Users\\sutnu\\source\\repos\\sutnuk\\TestsForCI\\TestsForCI\\bin\\Debug\\TestsForCI.exe"', label: 'Start nunit', returnStatus: true)
+        bat(script: '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe" "C:\\Users\\sutnu\\source\\repos\\sutnuk\\TestsForCI\\TestsForCI\\bin\\Debug\\TestsForCI.exe"', label: 'Start nunit', returnStatus: true)
       }
     }
 

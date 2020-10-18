@@ -10,7 +10,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat 'test.script'
+        bat(script: '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe" ', label: 'Start nunit', returnStatus: true)
       }
     }
 

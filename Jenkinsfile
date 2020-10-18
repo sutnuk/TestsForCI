@@ -16,8 +16,7 @@ pipeline {
 
     stage('Generate Reporting') {
       steps {
-        testcompletetest launchType: 'lcProject', project: 'TestsForCI',
-commandLineArguments: '/ExportSummary: TestResult.xml'
+       nunit testResultsPattern: 'TestResult.xml'
       }
     }
 

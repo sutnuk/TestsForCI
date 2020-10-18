@@ -19,7 +19,7 @@ namespace TestsForCI
         [SetUp]
         public void PreConditions()
         {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver("C:\\Driver");
             driver.Url = "https://ua.sinoptik.ua/";
             driver.Manage().Window.Maximize();
         }

@@ -16,7 +16,7 @@ pipeline {
 
     stage('Generate Reporting') {
       steps {
-        cucumber(classificationsFilePattern: '**/*.xml', fileExcludePattern: '0', reportTitle: 'Report', buildStatus: 'Builded', fileIncludePattern: 'TestResult.xml')
+        cucumber fileIncludePattern: '**/*.json', sortingMethod: 'ALPHABETICAL'
       }
     }
 

@@ -16,7 +16,10 @@ pipeline {
 
     stage('Generate Reporting') {
       steps {
-        cucumber fileIncludePattern: '**/*.json', sortingMethod: 'ALPHABETICAL'
+        publishHTML(target:
+  [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true,
+  reportDir: 'doc/internal/html', reportFiles: 'index.html', reportName:
+  'DOC', reportTitles: ''])
       }
     }
 

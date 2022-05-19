@@ -8,7 +8,10 @@ namespace TestsForCI
     {
         static void Main(string[] args)
         {
-                        
+            Tests tests = new Tests();
+            tests.PreConditions();
+            tests.Test();
+            tests.PostConditions();
         }
     }
 
@@ -19,16 +22,17 @@ namespace TestsForCI
         [SetUp]
         public void PreConditions()
         {
-            driver = new ChromeDriver("C:\\Driver");
-            driver.Url = "https://ua.sinoptik.ua/";
-            driver.Manage().Window.Maximize();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("headless");
+            driver = new ChromeDriver("C:\\ChromeDriver", options);                     
         }
 
         [Test]
-        public void Test()
+        public void Test()        
         {
-            IWebElement element = driver.FindElement(By.XPath("//input[@id='search_city']"));
-            Assert.True(element.GetAttribute("placeholder").Equals("Назва населеного пункту, країни або регіону"));
+            driver.Url = "https://www.google.com/";
+            IWebElement element = driver.FindElement(By.XPath("//input[@class='gLFyf gsfi']"));
+            Assert.True(element.GetAttribute("title").Equals("Пошук"));
         }
 
         [TearDown]
